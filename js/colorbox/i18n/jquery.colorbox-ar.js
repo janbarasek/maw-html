@@ -4,7 +4,7 @@
   translated by: A.Rhman Sayes
 */
 jQuery.extend(jQuery.colorbox.settings, {
-  current: "الصورة {current} من {total}",
+	current: "الصورة {current} من {total}",
 	previous: "السابق",
 	next: "التالي",
 	close: "إغلاق",

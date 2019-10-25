@@ -1,5 +1,5 @@
 <span class="nadpis">
-<?php 
+<?php
 
 ?>
 </span>

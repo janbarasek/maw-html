@@ -11,6 +11,6 @@ jQuery.extend(jQuery.colorbox.settings, {
 	close: "aizvērt",
 	xhrError: "Neizdevās ielādēt saturu.",
 	imgError: "Neizdevās ielādēt attēlu.",
-        slideshowStart: "sākt slaidrādi",
-        slideshowStop: "apturēt slaidrādi"
+	slideshowStart: "sākt slaidrādi",
+	slideshowStop: "apturēt slaidrādi"
 });

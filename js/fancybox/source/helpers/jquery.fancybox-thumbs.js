@@ -1,30 +1,30 @@
- /*!
- * Thumbnail helper for fancyBox
- * version: 1.0.7 (Mon, 01 Oct 2012)
- * @requires fancyBox v2.0 or later
- *
- * Usage:
- *     $(".fancybox").fancybox({
- *         helpers : {
- *             thumbs: {
- *                 width  : 50,
- *                 height : 50
- *             }
- *         }
- *     });
- *
- */
+/*!
+* Thumbnail helper for fancyBox
+* version: 1.0.7 (Mon, 01 Oct 2012)
+* @requires fancyBox v2.0 or later
+*
+* Usage:
+*     $(".fancybox").fancybox({
+*         helpers : {
+*             thumbs: {
+*                 width  : 50,
+*                 height : 50
+*             }
+*         }
+*     });
+*
+*/
 (function ($) {
 	//Shortcut for fancyBox object
 	var F = $.fancybox;
 
 	//Add helper object
 	F.helpers.thumbs = {
-		defaults : {
-			width    : 50,       // thumbnail width
-			height   : 50,       // thumbnail height
-			position : 'bottom', // 'top' or 'bottom'
-			source   : function ( item ) {  // function to obtain the URL of the thumbnail image
+		defaults: {
+			width: 50,       // thumbnail width
+			height: 50,       // thumbnail height
+			position: 'bottom', // 'top' or 'bottom'
+			source: function (item) {  // function to obtain the URL of the thumbnail image
 				var href;
 
 				if (item.element) {
@@ -39,14 +39,14 @@
 			}
 		},
 
-		wrap  : null,
-		list  : null,
-		width : 0,
+		wrap: null,
+		list: null,
+		width: 0,
 
 		init: function (opts, obj) {
 			var that = this,
 				list,
-				thumbWidth  = opts.width,
+				thumbWidth = opts.width,
 				thumbHeight = opts.height,
 				thumbSource = opts.source;
 
@@ -62,14 +62,14 @@
 
 			//Load each thumbnail
 			$.each(obj.group, function (i) {
-				var href = thumbSource( obj.group[ i ] );
+				var href = thumbSource(obj.group[i]);
 
 				if (!href) {
 					return;
 				}
 
 				$("<img />").load(function () {
-					var width  = this.width,
+					var width = this.width,
 						height = this.height,
 						widthRatio, heightRatio, parent;
 
@@ -78,27 +78,27 @@
 					}
 
 					//Calculate thumbnail width/height and center it
-					widthRatio  = width / thumbWidth;
+					widthRatio = width / thumbWidth;
 					heightRatio = height / thumbHeight;
 
 					parent = that.list.children().eq(i).find('a');
 
 					if (widthRatio >= 1 && heightRatio >= 1) {
 						if (widthRatio > heightRatio) {
-							width  = Math.floor(width / heightRatio);
+							width = Math.floor(width / heightRatio);
 							height = thumbHeight;
 
 						} else {
-							width  = thumbWidth;
+							width = thumbWidth;
 							height = Math.floor(height / widthRatio);
 						}
 					}
 
 					$(this).css({
-						width  : width,
-						height : height,
-						top    : Math.floor(thumbHeight / 2 - height / 2),
-						left   : Math.floor(thumbWidth / 2 - width / 2)
+						width: width,
+						height: height,
+						top: Math.floor(thumbHeight / 2 - height / 2),
+						left: Math.floor(thumbWidth / 2 - width / 2)
 					});
 
 					parent.width(thumbWidth).height(thumbHeight);
@@ -123,7 +123,7 @@
 			}
 
 			//Increase bottom margin to give space for thumbs
-			obj.margin[ opts.position === 'top' ? 0 : 2 ] += ((opts.height) + 15);
+			obj.margin[opts.position === 'top' ? 0 : 2] += ((opts.height) + 15);
 		},
 
 		afterShow: function (opts, obj) {
@@ -153,8 +153,8 @@
 				this.wrap.remove();
 			}
 
-			this.wrap  = null;
-			this.list  = null;
+			this.wrap = null;
+			this.list = null;
 			this.width = 0;
 		}
 	}

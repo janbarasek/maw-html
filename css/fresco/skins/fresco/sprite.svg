@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px"
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 width="500px"
 	 height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
 <g id="Layer_2">
 	<g opacity="0.5">
@@ -86,13 +87,14 @@ AAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 102.7871 22.7871)">
 				<g>
 					<polygon opacity="0.5" points="108.787,66.971 113.029,71.214 134.242,50 134.242,50 113.029,28.787 108.787,33.029 
 						125.758,50 					"/>
-					<polygon fill="#FFFFFF" points="110.201,66.971 113.029,69.799 132.828,50 113.029,30.201 110.201,33.029 127.172,50 					"/>
+					<polygon fill="#FFFFFF"
+							 points="110.201,66.971 113.029,69.799 132.828,50 113.029,30.201 110.201,33.029 127.172,50 					"/>
 				</g>
 			</g>
 		</g>
 	</g>
 </g>
-<g id="Layer_5">
+	<g id="Layer_5">
 	<g>
 		<g>
 			
@@ -182,7 +184,7 @@ AAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 102.7871 122.7871)">
 		</g>
 	</g>
 </g>
-<g id="Layer_3">
+	<g id="Layer_3">
 	<g opacity="0.5">
 		<g>
 			
@@ -265,13 +267,14 @@ I8AAM7xIZe54qSAAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 19.7578 22.787
 				<g>
 					<polygon opacity="0.5" points="51.213,66.971 46.971,71.214 25.758,50 25.758,50 46.971,28.787 51.213,33.029 34.242,50 					
 						"/>
-					<polygon fill="#FFFFFF" points="49.799,66.971 46.971,69.799 27.172,50 46.971,30.201 49.799,33.029 32.828,50 					"/>
+					<polygon fill="#FFFFFF"
+							 points="49.799,66.971 46.971,69.799 27.172,50 46.971,30.201 49.799,33.029 32.828,50 					"/>
 				</g>
 			</g>
 		</g>
 	</g>
 </g>
-<g id="Layer_4">
+	<g id="Layer_4">
 	<g>
 		<g>
 			
@@ -354,13 +357,14 @@ I8AAM7xIZe54qSAAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 19.7578 122.78
 				<g>
 					<polygon opacity="0.5" points="51.213,166.971 46.971,171.214 25.758,150 25.758,150 46.971,128.787 51.213,133.029 
 						34.242,150 					"/>
-					<polygon fill="#FFFFFF" points="49.799,166.971 46.971,169.799 27.172,150 46.971,130.201 49.799,133.029 32.828,150 					"/>
+					<polygon fill="#FFFFFF"
+							 points="49.799,166.971 46.971,169.799 27.172,150 46.971,130.201 49.799,133.029 32.828,150 					"/>
 				</g>
 			</g>
 		</g>
 	</g>
 </g>
-<g id="Layer_6">
+	<g id="Layer_6">
 	<g opacity="0.2">
 		<g>
 			
@@ -443,13 +447,14 @@ I8AAM7xIZe54qSAAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 19.7578 222.78
 				<g>
 					<polygon opacity="0.5" points="51.213,266.971 46.971,271.213 25.758,250 25.758,250 46.971,228.787 51.213,233.029 
 						34.242,250 					"/>
-					<polygon fill="#FFFFFF" points="49.799,266.971 46.971,269.799 27.172,250 46.971,230.201 49.799,233.029 32.828,250 					"/>
+					<polygon fill="#FFFFFF"
+							 points="49.799,266.971 46.971,269.799 27.172,250 46.971,230.201 49.799,233.029 32.828,250 					"/>
 				</g>
 			</g>
 		</g>
 	</g>
 </g>
-<g id="Layer_7">
+	<g id="Layer_7">
 	<g opacity="0.2">
 		<g>
 			
@@ -539,7 +544,7 @@ AAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 102.7871 222.7871)">
 		</g>
 	</g>
 </g>
-<g id="Layer_8">
+	<g id="Layer_8">
 	<g opacity="0.8">
 		<g>
 			<g>
@@ -613,7 +618,7 @@ da1rXeta17rWta51rWtdk9f/BBgA83pfutoxwogAAAAASUVORK5CYII=" transform="matrix(0.24
 			</g>
 		</g>
 	</g>
-	<g>
+		<g>
 		<g>
 			<g>
 				
@@ -687,7 +692,7 @@ wAC1sFA1MCeoZwAAAABJRU5ErkJggg==" transform="matrix(0.24 0 0 0.24 211.8682 9.868
 		</g>
 	</g>
 </g>
-<g id="Layer_10">
+	<g id="Layer_10">
 	<g opacity="0.5">
 		<g>
 			
@@ -770,7 +775,7 @@ gYGBgYGBgVFp/CPAAP/hv7rnRqgGAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 6.
 		</g>
 	</g>
 </g>
-<g id="Layer_9">
+	<g id="Layer_9">
 	<g opacity="0.5">
 		<g>
 			
@@ -854,7 +859,7 @@ AwMDAwOjfvxPgAEALNKdWPx8FOoAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 54
 		</g>
 	</g>
 </g>
-<g id="Layer_12">
+	<g id="Layer_12">
 	<g>
 		<g>
 			
@@ -937,7 +942,7 @@ gYGBgYGBgVFp/CPAAP/hv7rnRqgGAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 6.
 		</g>
 	</g>
 </g>
-<g id="Layer_11">
+	<g id="Layer_11">
 	<g>
 		<g>
 			
@@ -1021,7 +1026,7 @@ AwMDAwOjfvxPgAEALNKdWPx8FOoAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 54
 		</g>
 	</g>
 </g>
-<g id="Layer_14">
+	<g id="Layer_14">
 	<g opacity="0.2">
 		<g>
 			
@@ -1104,7 +1109,7 @@ gYGBgYGBgVFp/CPAAP/hv7rnRqgGAAAAAElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 6.
 		</g>
 	</g>
 </g>
-<g id="Layer_13">
+	<g id="Layer_13">
 	<g opacity="0.2">
 		<g>
 			
@@ -1188,7 +1193,7 @@ AwMDAwOjfvxPgAEALNKdWPx8FOoAAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 54
 		</g>
 	</g>
 </g>
-<g id="Layer_15">
+	<g id="Layer_15">
 	<g opacity="0.8">
 		<g>
 			
@@ -1247,7 +1252,7 @@ mTJlypQpU6ZMmTJlypQpU8LynwADABObsA4dY5HdAAAAAElFTkSuQmCC" transform="matrix(0.24
 		</g>
 	</g>
 </g>
-<g id="Layer_19">
+	<g id="Layer_19">
 	<g>
 		<g>
 			
@@ -1308,7 +1313,7 @@ RK5CYII=" transform="matrix(0.24 0 0 0.24 211.5195 48.8682)">
 		</g>
 	</g>
 </g>
-<g id="Layer_17">
+	<g id="Layer_17">
 	<g opacity="0.2">
 		<g>
 			
@@ -1367,7 +1372,7 @@ mTJlypQpU6ZMmTJlypQpU8LynwADABObsA4dY5HdAAAAAElFTkSuQmCC" transform="matrix(0.24
 		</g>
 	</g>
 </g>
-<g id="Layer_18">
+	<g id="Layer_18">
 	<g opacity="0.2">
 		<g>
 			
@@ -1427,7 +1432,7 @@ iCuASGqRHmtAtOdDxIq7gFjAHP0cxfl8AjG+35nPUIw/m0BOvm840NBDg7gbSE+FTCAXfqavAzBt
 			</g>
 		</g>
 	</g>
-	<g opacity="0.8">
+		<g opacity="0.8">
 		<g>
 			
 				<image overflow="visible" opacity="0.65" width="96" height="118" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAB9CAYAAABUO8YHAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1485,7 +1490,7 @@ AElFTkSuQmCC" transform="matrix(0.24 0 0 0.24 169.5205 90.8682)">
 			</g>
 		</g>
 	</g>
-	<g>
+		<g>
 		<g>
 			
 				<image overflow="visible" opacity="0.65" width="96" height="118" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAB9CAYAAABUO8YHAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1545,7 +1550,7 @@ iCuASGqRHmtAtOdDxIq7gFjAHP0cxfl8AjG+35nPUIw/m0BOvm840NBDg7gbSE+FTCAXfqavAzBt
 		</g>
 	</g>
 </g>
-<g id="Layer_20">
+	<g id="Layer_20">
 	<g opacity="0.2">
 		<g>
 			
@@ -1604,7 +1609,7 @@ pk2bNm3aWPafAAMAQ9J67qeGcq8AAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 37
 			</g>
 		</g>
 	</g>
-	<g opacity="0.8">
+		<g opacity="0.8">
 		<g>
 			
 				<image overflow="visible" opacity="0.65" width="118" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAABkCAYAAACrWT92AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1662,7 +1667,7 @@ pk2bNm3aWPafAAMAQ9J67qeGcq8AAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 29
 			</g>
 		</g>
 	</g>
-	<g>
+		<g>
 		<g>
 			
 				<image overflow="visible" opacity="0.65" width="118" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAABkCAYAAACrWT92AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1721,7 +1726,7 @@ pk2bNm3aWPafAAMAQ9J67qeGcq8AAAAASUVORK5CYII=" transform="matrix(0.24 0 0 0.24 33
 		</g>
 	</g>
 </g>
-<g id="Layer_21">
+	<g id="Layer_21">
 	<g opacity="0.8">
 		<g>
 			
@@ -1782,7 +1787,7 @@ RK5CYII=" transform="matrix(0.24 0 0 0.24 292.8682 93.5205)">
 			</g>
 		</g>
 	</g>
-	<g>
+		<g>
 		<g>
 			
 				<image overflow="visible" opacity="0.65" width="118" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAABkCAYAAACrWT92AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1842,7 +1847,7 @@ RK5CYII=" transform="matrix(0.24 0 0 0.24 334.8682 93.5205)">
 			</g>
 		</g>
 	</g>
-	<g opacity="0.2">
+		<g opacity="0.2">
 		<g>
 			
 				<image overflow="visible" opacity="0.65" width="118" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAABkCAYAAACrWT92AAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
@@ -1903,7 +1908,7 @@ RK5CYII=" transform="matrix(0.24 0 0 0.24 376.8682 93.5205)">
 		</g>
 	</g>
 </g>
-<g id="Layer_22">
+	<g id="Layer_22">
 	<g>
 		<rect x="252" y="473" fill="#FFFFFF" width="248" height="27"/>
 		<g>
@@ -1948,7 +1953,7 @@ RK5CYII=" transform="matrix(0.24 0 0 0.24 376.8682 93.5205)">
 				 M355.86,485.826c0.497,0,0.884-0.068,1.16-0.205c0.435-0.215,0.651-0.602,0.651-1.16c0-0.563-0.23-0.941-0.692-1.137
 				c-0.261-0.109-0.647-0.164-1.161-0.164h-2.102v2.666H355.86z M356.254,489.799c0.722,0,1.236-0.207,1.544-0.621
 				c0.193-0.262,0.29-0.578,0.29-0.949c0-0.625-0.282-1.051-0.846-1.277c-0.3-0.121-0.696-0.182-1.189-0.182h-2.336v3.029H356.254z"
-				/>
+			/>
 			<path d="M361.867,482.188v5.32c0,0.625,0.118,1.145,0.354,1.559c0.351,0.625,0.94,0.938,1.771,0.938
 				c0.996,0,1.674-0.338,2.032-1.014c0.192-0.367,0.289-0.861,0.289-1.482v-5.32h1.178v4.834c0,1.059-0.144,1.873-0.43,2.443
 				c-0.524,1.039-1.517,1.559-2.975,1.559s-2.448-0.52-2.969-1.559c-0.287-0.57-0.43-1.385-0.43-2.443v-4.834H361.867z"/>
@@ -2024,7 +2029,7 @@ RK5CYII=" transform="matrix(0.24 0 0 0.24 376.8682 93.5205)">
 		</g>
 	</g>
 </g>
-<g id="Layer_23">
+	<g id="Layer_23">
 	<g>
 		
 			<image overflow="visible" opacity="0.6" width="100" height="138" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAACOCAYAAADHPa2wAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA

@@ -1,17 +1,19 @@
 <?php
 
-$sdeleni_cz="";
-$sdeleni_czB="";
-$sdeleni_czC="";
-$sdeleni_en="";
-$sdeleni_enB="";
-$sdeleni_enC="";
+$sdeleni_cz = "";
+$sdeleni_czB = "";
+$sdeleni_czC = "";
+$sdeleni_en = "";
+$sdeleni_enB = "";
+$sdeleni_enC = "";
 
 
-if (file_exists("public/mathevents/events.php")) {require_once("public/mathevents/events.php");}
+if (file_exists("public/mathevents/events.php")) {
+	require_once("public/mathevents/events.php");
+}
 
 
-$social='  <!-- Buttons start here. Copy this ul to your document. -->
+$social = '  <!-- Buttons start here. Copy this ul to your document. -->
       <ul class="rrssb-buttons">
         <li class="rrssb-email">
           <!-- Replace subject with your message using URL Endocding: http://meyerweb.com/eric/tools/dencoder/ -->
@@ -144,7 +146,6 @@ $social='  <!-- Buttons start here. Copy this ul to your document. -->
       </ul>
       <!-- Buttons end here -->
 ';
-
 
 
 ?>

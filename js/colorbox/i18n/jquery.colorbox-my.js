@@ -4,7 +4,7 @@
 	translated by: Yan Naing
 */
 jQuery.extend(jQuery.colorbox.settings, {
-  current: "ပုံ {total} မှာ {current} မြောက်ပုံ",
+	current: "ပုံ {total} မှာ {current} မြောက်ပုံ",
 	previous: "ရှေ့သို့",
 	next: "နောက်သို့",
 	close: "ပိတ်မည်",

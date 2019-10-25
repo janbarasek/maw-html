@@ -5,175 +5,175 @@
 */
 (function ($, document, window) {
 	var
-	// Default settings object.
-	// See http://jacklmoore.com/colorbox for details.
-	defaults = {
-		// data sources
-		html: false,
-		photo: false,
-		iframe: false,
-		inline: false,
+		// Default settings object.
+		// See http://jacklmoore.com/colorbox for details.
+		defaults = {
+			// data sources
+			html: false,
+			photo: false,
+			iframe: false,
+			inline: false,
 
-		// behavior and appearance
-		transition: "elastic",
-		speed: 300,
-		fadeOut: 300,
-		width: false,
-		initialWidth: "600",
-		innerWidth: false,
-		maxWidth: false,
-		height: false,
-		initialHeight: "450",
-		innerHeight: false,
-		maxHeight: false,
-		scalePhotos: true,
-		scrolling: true,
-		opacity: 0.9,
-		preloading: true,
-		className: false,
-		overlayClose: true,
-		escKey: true,
-		arrowKey: true,
-		top: false,
-		bottom: false,
-		left: false,
-		right: false,
-		fixed: false,
-		data: undefined,
-		closeButton: true,
-		fastIframe: true,
-		open: false,
-		reposition: true,
-		loop: true,
-		slideshow: false,
-		slideshowAuto: true,
-		slideshowSpeed: 2500,
-		slideshowStart: "start slideshow",
-		slideshowStop: "stop slideshow",
-		photoRegex: /\.(gif|png|jp(e|g|eg)|bmp|ico|webp|jxr|svg)((#|\?).*)?$/i,
+			// behavior and appearance
+			transition: "elastic",
+			speed: 300,
+			fadeOut: 300,
+			width: false,
+			initialWidth: "600",
+			innerWidth: false,
+			maxWidth: false,
+			height: false,
+			initialHeight: "450",
+			innerHeight: false,
+			maxHeight: false,
+			scalePhotos: true,
+			scrolling: true,
+			opacity: 0.9,
+			preloading: true,
+			className: false,
+			overlayClose: true,
+			escKey: true,
+			arrowKey: true,
+			top: false,
+			bottom: false,
+			left: false,
+			right: false,
+			fixed: false,
+			data: undefined,
+			closeButton: true,
+			fastIframe: true,
+			open: false,
+			reposition: true,
+			loop: true,
+			slideshow: false,
+			slideshowAuto: true,
+			slideshowSpeed: 2500,
+			slideshowStart: "start slideshow",
+			slideshowStop: "stop slideshow",
+			photoRegex: /\.(gif|png|jp(e|g|eg)|bmp|ico|webp|jxr|svg)((#|\?).*)?$/i,
 
-		// alternate image paths for high-res displays
-		retinaImage: false,
-		retinaUrl: false,
-		retinaSuffix: '@2x.$1',
+			// alternate image paths for high-res displays
+			retinaImage: false,
+			retinaUrl: false,
+			retinaSuffix: '@2x.$1',
 
-		// internationalization
-		current: "image {current} of {total}",
-		previous: "previous",
-		next: "next",
-		close: "close",
-		xhrError: "This content failed to load.",
-		imgError: "This image failed to load.",
+			// internationalization
+			current: "image {current} of {total}",
+			previous: "previous",
+			next: "next",
+			close: "close",
+			xhrError: "This content failed to load.",
+			imgError: "This image failed to load.",
 
-		// accessbility
-		returnFocus: true,
-		trapFocus: true,
+			// accessbility
+			returnFocus: true,
+			trapFocus: true,
 
-		// callbacks
-		onOpen: false,
-		onLoad: false,
-		onComplete: false,
-		onCleanup: false,
-		onClosed: false,
+			// callbacks
+			onOpen: false,
+			onLoad: false,
+			onComplete: false,
+			onCleanup: false,
+			onClosed: false,
 
-		rel: function() {
-			return this.rel;
-		},
-		href: function() {
-			// using this.href would give the absolute url, when the href may have been inteded as a selector (e.g. '#container')
-			return $(this).attr('href');
-		},
-		title: function() {
-			return this.title;
-		},
-		createImg: function() {
-			var img = new Image();
-			var attrs = $(this).data('cbox-img-attrs');
+			rel: function () {
+				return this.rel;
+			},
+			href: function () {
+				// using this.href would give the absolute url, when the href may have been inteded as a selector (e.g. '#container')
+				return $(this).attr('href');
+			},
+			title: function () {
+				return this.title;
+			},
+			createImg: function () {
+				var img = new Image();
+				var attrs = $(this).data('cbox-img-attrs');
 
-			if (typeof attrs === 'object') {
-				$.each(attrs, function(key, val){
-					img[key] = val;
-				});
+				if (typeof attrs === 'object') {
+					$.each(attrs, function (key, val) {
+						img[key] = val;
+					});
+				}
+
+				return img;
+			},
+			createIframe: function () {
+				var iframe = document.createElement('iframe');
+				var attrs = $(this).data('cbox-iframe-attrs');
+
+				if (typeof attrs === 'object') {
+					$.each(attrs, function (key, val) {
+						iframe[key] = val;
+					});
+				}
+
+				if ('frameBorder' in iframe) {
+					iframe.frameBorder = 0;
+				}
+				if ('allowTransparency' in iframe) {
+					iframe.allowTransparency = "true";
+				}
+				iframe.name = (new Date()).getTime(); // give the iframe a unique name to prevent caching
+				iframe.allowFullScreen = true;
+
+				return iframe;
 			}
-
-			return img;
 		},
-		createIframe: function() {
-			var iframe = document.createElement('iframe');
-			var attrs = $(this).data('cbox-iframe-attrs');
 
-			if (typeof attrs === 'object') {
-				$.each(attrs, function(key, val){
-					iframe[key] = val;
-				});
-			}
+		// Abstracting the HTML and event identifiers for easy rebranding
+		colorbox = 'colorbox',
+		prefix = 'cbox',
+		boxElement = prefix + 'Element',
 
-			if ('frameBorder' in iframe) {
-				iframe.frameBorder = 0;
-			}
-			if ('allowTransparency' in iframe) {
-				iframe.allowTransparency = "true";
-			}
-			iframe.name = (new Date()).getTime(); // give the iframe a unique name to prevent caching
-			iframe.allowFullScreen = true;
+		// Events
+		event_open = prefix + '_open',
+		event_load = prefix + '_load',
+		event_complete = prefix + '_complete',
+		event_cleanup = prefix + '_cleanup',
+		event_closed = prefix + '_closed',
+		event_purge = prefix + '_purge',
 
-			return iframe;
-		}
-	},
+		// Cached jQuery Object Variables
+		$overlay,
+		$box,
+		$wrap,
+		$content,
+		$topBorder,
+		$leftBorder,
+		$rightBorder,
+		$bottomBorder,
+		$related,
+		$window,
+		$loaded,
+		$loadingBay,
+		$loadingOverlay,
+		$title,
+		$current,
+		$slideshow,
+		$next,
+		$prev,
+		$close,
+		$groupControls,
+		$events = $('<a/>'), // $({}) would be prefered, but there is an issue with jQuery 1.4.2
 
-	// Abstracting the HTML and event identifiers for easy rebranding
-	colorbox = 'colorbox',
-	prefix = 'cbox',
-	boxElement = prefix + 'Element',
-
-	// Events
-	event_open = prefix + '_open',
-	event_load = prefix + '_load',
-	event_complete = prefix + '_complete',
-	event_cleanup = prefix + '_cleanup',
-	event_closed = prefix + '_closed',
-	event_purge = prefix + '_purge',
-
-	// Cached jQuery Object Variables
-	$overlay,
-	$box,
-	$wrap,
-	$content,
-	$topBorder,
-	$leftBorder,
-	$rightBorder,
-	$bottomBorder,
-	$related,
-	$window,
-	$loaded,
-	$loadingBay,
-	$loadingOverlay,
-	$title,
-	$current,
-	$slideshow,
-	$next,
-	$prev,
-	$close,
-	$groupControls,
-	$events = $('<a/>'), // $({}) would be prefered, but there is an issue with jQuery 1.4.2
-
-	// Variables for cached values or use across multiple functions
-	settings,
-	interfaceHeight,
-	interfaceWidth,
-	loadedHeight,
-	loadedWidth,
-	index,
-	photo,
-	open,
-	active,
-	closing,
-	loadingTimer,
-	publicMethod,
-	div = "div",
-	requests = 0,
-	previousCSS = {},
-	init;
+		// Variables for cached values or use across multiple functions
+		settings,
+		interfaceHeight,
+		interfaceWidth,
+		loadedHeight,
+		loadedWidth,
+		index,
+		photo,
+		open,
+		active,
+		closing,
+		loadingTimer,
+		publicMethod,
+		div = "div",
+		requests = 0,
+		previousCSS = {},
+		init;
 
 	// ****************
 	// HELPER FUNCTIONS
@@ -208,11 +208,11 @@
 		this.cache = {};
 		this.el = element;
 
-		this.value = function(key) {
+		this.value = function (key) {
 			var dataAttr;
 
 			if (this.cache[key] === undefined) {
-				dataAttr = $(this.el).attr('data-cbox-'+key);
+				dataAttr = $(this.el).attr('data-cbox-' + key);
 
 				if (dataAttr !== undefined) {
 					this.cache[key] = dataAttr;
@@ -226,7 +226,7 @@
 			return this.cache[key];
 		};
 
-		this.get = function(key) {
+		this.get = function (key) {
 			var value = this.value(key);
 			return $.isFunction(value) ? value.call(this.el, this) : value;
 		};
@@ -235,8 +235,8 @@
 	// Determine the next and previous members in a group.
 	function getIndex(increment) {
 		var
-		max = $related.length,
-		newIndex = (index + increment) % max;
+			max = $related.length,
+			newIndex = (index + increment) % max;
 
 		return (newIndex < 0) ? max + newIndex : newIndex;
 	}
@@ -298,13 +298,13 @@
 		$events.triggerHandler(event);
 	}
 
-	var slideshow = (function(){
+	var slideshow = (function () {
 		var active,
 			className = prefix + "Slideshow_",
 			click = "click." + prefix,
 			timeOut;
 
-		function clear () {
+		function clear() {
 			clearTimeout(timeOut);
 		}
 
@@ -356,7 +356,7 @@
 			$box.removeClass(className + "off " + className + "on");
 		}
 
-		return function(){
+		return function () {
 			if (active) {
 				if (!settings.get('slideshow')) {
 					$events.unbind(event_cleanup, reset);
@@ -396,10 +396,10 @@
 				setClass(settings.get('className'));
 
 				// Show colorbox so the sizes can be calculated in older versions of jQuery
-				$box.css({visibility:'hidden', display:'block', opacity:''});
+				$box.css({visibility: 'hidden', display: 'block', opacity: ''});
 
 				$loaded = $tag(div, 'LoadedContent', 'width:0; height:0; overflow:hidden; visibility:hidden');
-				$content.css({width:'', height:''}).append($loaded);
+				$content.css({width: '', height: ''}).append($loaded);
 
 				// Cache values needed for size calculations
 				interfaceHeight = $topBorder.height() + $bottomBorder.height() + $content.outerHeight(true) - $content.height();
@@ -416,7 +416,7 @@
 				settings.w = (maxWidth !== false ? Math.min(initialWidth, setSize(maxWidth, 'x')) : initialWidth) - loadedWidth - interfaceWidth;
 				settings.h = (maxHeight !== false ? Math.min(initialHeight, setSize(maxHeight, 'y')) : initialHeight) - loadedHeight - interfaceHeight;
 
-				$loaded.css({width:'', height:settings.h});
+				$loaded.css({width: '', height: settings.h});
 				publicMethod.position();
 
 				trigger(event_open);
@@ -477,18 +477,18 @@
 				tabindex: '-1'
 			}).hide();
 			$overlay = $tag(div, "Overlay").hide();
-			$loadingOverlay = $([$tag(div, "LoadingOverlay")[0],$tag(div, "LoadingGraphic")[0]]);
+			$loadingOverlay = $([$tag(div, "LoadingOverlay")[0], $tag(div, "LoadingGraphic")[0]]);
 			$wrap = $tag(div, "Wrapper");
 			$content = $tag(div, "Content").append(
 				$title = $tag(div, "Title"),
 				$current = $tag(div, "Current"),
-				$prev = $('<button type="button"/>').attr({id:prefix+'Previous'}),
-				$next = $('<button type="button"/>').attr({id:prefix+'Next'}),
+				$prev = $('<button type="button"/>').attr({id: prefix + 'Previous'}),
+				$next = $('<button type="button"/>').attr({id: prefix + 'Next'}),
 				$slideshow = $tag('button', "Slideshow"),
 				$loadingOverlay
 			);
 
-			$close = $('<button type="button"/>').attr({id:prefix+'Close'});
+			$close = $('<button type="button"/>').attr({id: prefix + 'Close'});
 
 			$wrap.append( // The 3x3 Grid that makes up Colorbox
 				$tag(div).append(
@@ -568,12 +568,12 @@
 
 				if ($.isFunction($.fn.on)) {
 					// For jQuery 1.7+
-					$(document).on('click.'+prefix, '.'+boxElement, clickHandler);
+					$(document).on('click.' + prefix, '.' + boxElement, clickHandler);
 				} else {
 					// For jQuery 1.3.x -> 1.6.x
 					// This code is never reached in jQuery 1.9, so do not contact me about 'live' being removed.
 					// This is not here for jQuery 1.9, it's here for legacy users.
-					$('.'+boxElement).live('click.'+prefix, clickHandler);
+					$('.' + boxElement).live('click.' + prefix, clickHandler);
 				}
 			}
 			return true;
@@ -636,12 +636,12 @@
 
 	publicMethod.position = function (speed, loadedCallback) {
 		var
-		css,
-		top = 0,
-		left = 0,
-		offset = $box.offset(),
-		scrollTop,
-		scrollLeft;
+			css,
+			top = 0,
+			left = 0,
+			offset = $box.offset(),
+			scrollTop,
+			scrollLeft;
 
 		$window.unbind('resize.' + prefix);
 
@@ -678,7 +678,7 @@
 			top += Math.round(Math.max(winheight() - settings.h - loadedHeight - interfaceHeight, 0) / 2);
 		}
 
-		$box.css({top: offset.top, left: offset.left, visibility:'visible'});
+		$box.css({top: offset.top, left: offset.left, visibility: 'visible'});
 
 		// this gives the wrapper plenty of breathing room so it's floated contents can move around smoothly,
 		// but it has to be shrank down around the size of div#colorbox when it's done.  If not,
@@ -686,16 +686,21 @@
 		$wrap[0].style.width = $wrap[0].style.height = "9999px";
 
 		function modalDimensions() {
-			$topBorder[0].style.width = $bottomBorder[0].style.width = $content[0].style.width = (parseInt($box[0].style.width,10) - interfaceWidth)+'px';
-			$content[0].style.height = $leftBorder[0].style.height = $rightBorder[0].style.height = (parseInt($box[0].style.height,10) - interfaceHeight)+'px';
+			$topBorder[0].style.width = $bottomBorder[0].style.width = $content[0].style.width = (parseInt($box[0].style.width, 10) - interfaceWidth) + 'px';
+			$content[0].style.height = $leftBorder[0].style.height = $rightBorder[0].style.height = (parseInt($box[0].style.height, 10) - interfaceHeight) + 'px';
 		}
 
-		css = {width: settings.w + loadedWidth + interfaceWidth, height: settings.h + loadedHeight + interfaceHeight, top: top, left: left};
+		css = {
+			width: settings.w + loadedWidth + interfaceWidth,
+			height: settings.h + loadedHeight + interfaceHeight,
+			top: top,
+			left: left
+		};
 
 		// setting the speed to 0 if the content hasn't changed size or position
 		if (speed) {
 			var tempSpeed = 0;
-			$.each(css, function(i){
+			$.each(css, function (i) {
 				if (css[i] !== previousCSS[i]) {
 					tempSpeed = speed;
 					return;
@@ -767,7 +772,7 @@
 
 			$loaded.css({height: settings.h});
 
-			if(scrolltop) {
+			if (scrolltop) {
 				$loaded.scrollTop(scrolltop);
 			}
 
@@ -791,6 +796,7 @@
 			settings.w = settings.mw && settings.mw < settings.w ? settings.mw : settings.w;
 			return settings.w;
 		}
+
 		function getHeight() {
 			settings.h = settings.h || $loaded.height();
 			settings.h = settings.mh && settings.mh < settings.h ? settings.mh : settings.h;
@@ -798,10 +804,10 @@
 		}
 
 		$loaded.hide()
-		.appendTo($loadingBay.show())// content has to be appended to the DOM for accurate size calculations.
-		.css({width: getWidth(), overflow: settings.get('scrolling') ? 'auto' : 'hidden'})
-		.css({height: getHeight()})// sets the height independently from the width in case the new width influences the value of height.
-		.prependTo($content);
+			.appendTo($loadingBay.show())// content has to be appended to the DOM for accurate size calculations.
+			.css({width: getWidth(), overflow: settings.get('scrolling') ? 'auto' : 'hidden'})
+			.css({height: getHeight()})// sets the height independently from the width in case the new width influences the value of height.
+			.prependTo($content);
 
 		$loadingBay.hide();
 
@@ -849,7 +855,7 @@
 
 				// Preloads images within a rel group
 				if (settings.get('preloading')) {
-					$.each([getIndex(-1), getIndex(1)], function(){
+					$.each([getIndex(-1), getIndex(1)], function () {
 						var img,
 							i = $related[this],
 							settings = new Settings(i, $.data(i, colorbox)),
@@ -909,7 +915,7 @@
 		}
 	};
 
-	function load () {
+	function load() {
 		var href, setResize, prep = publicMethod.prep, $inline, request = ++requests;
 
 		active = true;
@@ -921,12 +927,12 @@
 		settings.get('onLoad');
 
 		settings.h = settings.get('height') ?
-				setSize(settings.get('height'), 'y') - loadedHeight - interfaceHeight :
-				settings.get('innerHeight') && setSize(settings.get('innerHeight'), 'y');
+			setSize(settings.get('height'), 'y') - loadedHeight - interfaceHeight :
+			settings.get('innerHeight') && setSize(settings.get('innerHeight'), 'y');
 
 		settings.w = settings.get('width') ?
-				setSize(settings.get('width'), 'x') - loadedWidth - interfaceWidth :
-				settings.get('innerWidth') && setSize(settings.get('innerWidth'), 'x');
+			setSize(settings.get('width'), 'x') - loadedWidth - interfaceWidth :
+			settings.get('innerWidth') && setSize(settings.get('innerWidth'), 'x');
 
 		// Sets the minimum dimensions for use in image scaling
 		settings.mw = settings.w;
@@ -973,57 +979,57 @@
 			photo = settings.get('createImg');
 
 			$(photo)
-			.addClass(prefix + 'Photo')
-			.bind('error.'+prefix,function () {
-				prep($tag(div, 'Error').html(settings.get('imgError')));
-			})
-			.one('load', function () {
-				if (request !== requests) {
-					return;
-				}
-
-				// A small pause because some browsers will occassionaly report a
-				// img.width and img.height of zero immediately after the img.onload fires
-				setTimeout(function(){
-					var percent;
-
-					if (settings.get('retinaImage') && window.devicePixelRatio > 1) {
-						photo.height = photo.height / window.devicePixelRatio;
-						photo.width = photo.width / window.devicePixelRatio;
+				.addClass(prefix + 'Photo')
+				.bind('error.' + prefix, function () {
+					prep($tag(div, 'Error').html(settings.get('imgError')));
+				})
+				.one('load', function () {
+					if (request !== requests) {
+						return;
 					}
 
-					if (settings.get('scalePhotos')) {
-						setResize = function () {
-							photo.height -= photo.height * percent;
-							photo.width -= photo.width * percent;
-						};
-						if (settings.mw && photo.width > settings.mw) {
-							percent = (photo.width - settings.mw) / photo.width;
-							setResize();
+					// A small pause because some browsers will occassionaly report a
+					// img.width and img.height of zero immediately after the img.onload fires
+					setTimeout(function () {
+						var percent;
+
+						if (settings.get('retinaImage') && window.devicePixelRatio > 1) {
+							photo.height = photo.height / window.devicePixelRatio;
+							photo.width = photo.width / window.devicePixelRatio;
 						}
-						if (settings.mh && photo.height > settings.mh) {
-							percent = (photo.height - settings.mh) / photo.height;
-							setResize();
+
+						if (settings.get('scalePhotos')) {
+							setResize = function () {
+								photo.height -= photo.height * percent;
+								photo.width -= photo.width * percent;
+							};
+							if (settings.mw && photo.width > settings.mw) {
+								percent = (photo.width - settings.mw) / photo.width;
+								setResize();
+							}
+							if (settings.mh && photo.height > settings.mh) {
+								percent = (photo.height - settings.mh) / photo.height;
+								setResize();
+							}
 						}
-					}
 
-					if (settings.h) {
-						photo.style.marginTop = Math.max(settings.mh - photo.height, 0) / 2 + 'px';
-					}
+						if (settings.h) {
+							photo.style.marginTop = Math.max(settings.mh - photo.height, 0) / 2 + 'px';
+						}
 
-					if ($related[1] && (settings.get('loop') || $related[index + 1])) {
-						photo.style.cursor = 'pointer';
+						if ($related[1] && (settings.get('loop') || $related[index + 1])) {
+							photo.style.cursor = 'pointer';
 
-						$(photo).bind('click.'+prefix, function () {
-							publicMethod.next();
-						});
-					}
+							$(photo).bind('click.' + prefix, function () {
+								publicMethod.next();
+							});
+						}
 
-					photo.style.width = photo.width + 'px';
-					photo.style.height = photo.height + 'px';
-					prep(photo);
-				}, 1);
-			});
+						photo.style.width = photo.width + 'px';
+						photo.style.height = photo.height + 'px';
+						prep(photo);
+					}, 1);
+				});
 
 			photo.src = href;
 
@@ -1079,7 +1085,9 @@
 
 	// Removes changes Colorbox made to the document, but does not remove the plugin.
 	publicMethod.remove = function () {
-		if (!$box) { return; }
+		if (!$box) {
+			return;
+		}
 
 		$box.stop();
 		$[colorbox].close();
@@ -1091,7 +1099,7 @@
 			.removeData(colorbox)
 			.removeClass(boxElement);
 
-		$(document).unbind('click.'+prefix).unbind('keydown.'+prefix);
+		$(document).unbind('click.' + prefix).unbind('keydown.' + prefix);
 	};
 
 	// A method for fetching the current element Colorbox is referencing.

@@ -17,18 +17,18 @@
        \__\/         \__\/
 */
 
-+(function(window, $, undefined) {
++(function (window, $, undefined) {
 	'use strict';
 
 	var support = {
-		calc : false
+		calc: false
 	};
 
 	/*
 	 * Public Function
 	 */
 
-	 $.fn.rrssb = function( options ) {
+	$.fn.rrssb = function (options) {
 
 		// Settings that $.rrssb() will accept.
 		var settings = $.extend({
@@ -39,18 +39,19 @@
 			image: undefined,
 			title: undefined,
 			url: undefined
-		}, options );
+		}, options);
 
 		// Return the encoded strings if the settings have been changed.
 		for (var key in settings) {
 			if (settings.hasOwnProperty(key) && settings[key] !== undefined) {
 				settings[key] = encodeString(settings[key]);
 			}
-		};
+		}
+		;
 
 		if (settings.url !== undefined) {
 			$(this).find('.rrssb-facebook a').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=' + settings.url);
-			$(this).find('.rrssb-tumblr a').attr('href', 'http://tumblr.com/share/link?url=' + settings.url + (settings.title !== undefined ? '&name=' + settings.title : '')  + (settings.description !== undefined ? '&description=' + settings.description : ''));
+			$(this).find('.rrssb-tumblr a').attr('href', 'http://tumblr.com/share/link?url=' + settings.url + (settings.title !== undefined ? '&name=' + settings.title : '') + (settings.description !== undefined ? '&description=' + settings.description : ''));
 			$(this).find('.rrssb-linkedin a').attr('href', 'http://www.linkedin.com/shareArticle?mini=true&url=' + settings.url + (settings.title !== undefined ? '&title=' + settings.title : '') + (settings.description !== undefined ? '&summary=' + settings.description : ''));
 			$(this).find('.rrssb-twitter a').attr('href', 'http://twitter.com/home?status=' + (settings.description !== undefined ? settings.description : '') + '%20' + settings.url);
 			$(this).find('.rrssb-hackernews a').attr('href', 'https://news.ycombinator.com/submitlink?u=' + settings.url + (settings.title !== undefined ? '&text=' + settings.title : ''));
@@ -70,7 +71,7 @@
 	/*
 	 * Utility functions
 	 */
-	var detectCalcSupport = function(){
+	var detectCalcSupport = function () {
 		//detect if calc is natively supported.
 		var el = $('<div>');
 		var calcProps = [
@@ -81,9 +82,9 @@
 
 		$('body').append(el);
 
-		for (var i=0; i < calcProps.length; i++) {
+		for (var i = 0; i < calcProps.length; i++) {
 			el.css('width', calcProps[i] + '(1px)');
-			if(el.width() === 1){
+			if (el.width() === 1) {
 				support.calc = calcProps[i];
 				break;
 			}
@@ -92,7 +93,7 @@
 		el.remove();
 	};
 
-	var encodeString = function(string) {
+	var encodeString = function (string) {
 		// Recursively decode string first to ensure we aren't double encoding.
 		if (string !== undefined && string !== null) {
 			if (string.match(/%[0-9a-f]{2}/i) !== null) {
@@ -104,22 +105,22 @@
 		}
 	};
 
-	var setPercentBtns = function() {
+	var setPercentBtns = function () {
 		// loop through each instance of buttons
-		$('.rrssb-buttons').each(function(index) {
+		$('.rrssb-buttons').each(function (index) {
 			var self = $(this);
 			var buttons = $('li:visible', self);
 			var numOfButtons = buttons.length;
-			var initBtnWidth = 100 ;
+			var initBtnWidth = 100;
 
 			// set initial width of buttons
-			buttons.css('width', initBtnWidth + '%').attr('data-initwidth',initBtnWidth);
+			buttons.css('width', initBtnWidth + '%').attr('data-initwidth', initBtnWidth);
 		});
 	};
 
-	var makeExtremityBtns = function() {
+	var makeExtremityBtns = function () {
 		// loop through each instance of buttons
-		$('.rrssb-buttons').each(function(index) {
+		$('.rrssb-buttons').each(function (index) {
 			var self = $(this);
 			//get button width
 			var containerWidth = self.width();
@@ -140,9 +141,9 @@
 		});
 	};
 
-	var backUpFromSmall = function() {
+	var backUpFromSmall = function () {
 		// loop through each instance of buttons
-		$('.rrssb-buttons').each(function(index) {
+		$('.rrssb-buttons').each(function (index) {
 			var self = $(this);
 
 			var buttons = $('li', self);
@@ -165,7 +166,7 @@
 				}
 
 			} else {
-				buttons.not('.small').each(function(index) {
+				buttons.not('.small').each(function (index) {
 					var button = $(this);
 					var txtWidth = parseFloat(button.attr('data-size')) + 55;
 					var btnWidth = parseFloat(button.width());
@@ -184,15 +185,15 @@
 		});
 	};
 
-	var checkSize = function(init) {
+	var checkSize = function (init) {
 		// loop through each instance of buttons
-		$('.rrssb-buttons').each(function(index) {
+		$('.rrssb-buttons').each(function (index) {
 
 			var self = $(this);
 			var buttons = $('li', self);
 
 			// get buttons in reverse order and loop through each
-			$(buttons.get().reverse()).each(function(index, count) {
+			$(buttons.get().reverse()).each(function (index, count) {
 
 				var button = $(this);
 
@@ -217,9 +218,9 @@
 		}
 	};
 
-	var sizeSmallBtns = function() {
+	var sizeSmallBtns = function () {
 		// loop through each instance of buttons
-		$('.rrssb-buttons').each(function(index) {
+		$('.rrssb-buttons').each(function (index) {
 			var self = $(this);
 			var regButtonCount;
 			var regPercent;
@@ -237,7 +238,7 @@
 				self.removeClass('small-format');
 
 				//make sure small buttons are square when not all small
-				smallButtons.css('width','42px');
+				smallButtons.css('width', '42px');
 				pixelsOff = smallBtnCount * 42;
 				regButtonCount = buttons.not('.small').length;
 				regPercent = 100 / regButtonCount;
@@ -245,11 +246,11 @@
 
 				// if calc is not supported. calculate the width on the fly.
 				if (support.calc === false) {
-					magicWidth = ((self.innerWidth()-1) / regButtonCount) - smallBtnFraction;
-					magicWidth = Math.floor(magicWidth*1000) / 1000;
+					magicWidth = ((self.innerWidth() - 1) / regButtonCount) - smallBtnFraction;
+					magicWidth = Math.floor(magicWidth * 1000) / 1000;
 					magicWidth += 'px';
 				} else {
-					magicWidth = support.calc+'('+regPercent+'% - '+smallBtnFraction+'px)';
+					magicWidth = support.calc + '(' + regPercent + '% - ' + smallBtnFraction + 'px)';
 				}
 
 				buttons.not('.small').css('width', magicWidth);
@@ -267,9 +268,9 @@
 		makeExtremityBtns();
 	};
 
-	var rrssbInit = function() {
-		$('.rrssb-buttons').each(function(index) {
-			$(this).addClass('rrssb-'+(index + 1));
+	var rrssbInit = function () {
+		$('.rrssb-buttons').each(function (index) {
+			$(this).addClass('rrssb-' + (index + 1));
 		});
 
 		detectCalcSupport();
@@ -277,7 +278,7 @@
 		setPercentBtns();
 
 		// grab initial text width of each button and add as data attr
-		$('.rrssb-buttons li .rrssb-text').each(function(index) {
+		$('.rrssb-buttons li .rrssb-text').each(function (index) {
 			var buttonTxt = $(this);
 			var txtWdth = buttonTxt.width();
 			buttonTxt.closest('li').attr('data-size', txtWdth);
@@ -286,7 +287,7 @@
 		checkSize(true);
 	};
 
-	var rrssbMagicLayout = function(callback) {
+	var rrssbMagicLayout = function (callback) {
 		//remove small buttons before each conversion try
 		$('.rrssb-buttons li.small').removeClass('small');
 
@@ -295,7 +296,7 @@
 		callback();
 	};
 
-	var popupCenter = function(url, title, w, h) {
+	var popupCenter = function (url, title, w, h) {
 		// Fixes dual-screen position                         Most browsers      Firefox
 		var dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : screen.left;
 		var dualScreenTop = window.screenTop !== undefined ? window.screenTop : screen.top;
@@ -321,19 +322,19 @@
 				uniqueId = "Don't call this twice without a uniqueId";
 			}
 			if (timers[uniqueId]) {
-				clearTimeout (timers[uniqueId]);
+				clearTimeout(timers[uniqueId]);
 			}
 			timers[uniqueId] = setTimeout(callback, ms);
 		};
 	})();
 
 	// init load
-	$(document).ready(function(){
+	$(document).ready(function () {
 		/*
 		 * Event listners
 		 */
 
-                $(document).on('click', '.rrssb-buttons a.popup', {}, function popUp(e) {
+		$(document).on('click', '.rrssb-buttons a.popup', {}, function popUp(e) {
 			var self = $(this);
 			popupCenter(self.attr('href'), self.find('.rrssb-text').html(), 580, 470);
 			e.preventDefault();
@@ -344,7 +345,7 @@
 
 			rrssbMagicLayout(sizeSmallBtns);
 
-			waitForFinalEvent(function(){
+			waitForFinalEvent(function () {
 				rrssbMagicLayout(sizeSmallBtns);
 			}, 200, "finished resizing");
 		});

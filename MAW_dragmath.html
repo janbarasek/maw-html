@@ -1,52 +1,58 @@
 <html>
 <head>
 
-<title>MAW Maxima Popup</title>
+	<title>MAW Maxima Popup</title>
 
-<script language="Javascript">
+	<script language="Javascript">
 
-var exp = opener.document.forms['exampleform'].elements[opener.thenumber].value
-var mawlan = opener.document.forms['exampleform'].elements[0].value
+	  var exp = opener.document.forms['exampleform'].elements[opener.thenumber].value
+	  var mawlan = opener.document.forms['exampleform'].elements[0].value
 
-if (mawlan==undefined) {mawlan=opener.document.forms['exampleform'].elements[1].value;}
+	  if (mawlan == undefined) {
+		  mawlan = opener.document.forms['exampleform'].elements[1].value;
+	  }
 
-if (mawlan==undefined) {mawlan='en';}
-if (mawlan=='cs') {mawlan='cz';}
-if (mawlan=='zh') {mawlan='en';}
+	  if (mawlan == undefined) {
+		  mawlan = 'en';
+	  }
+	  if (mawlan == 'cs') {
+		  mawlan = 'cz';
+	  }
+	  if (mawlan == 'zh') {
+		  mawlan = 'en';
+	  }
 
-document.write('<applet name="DragMath" codebase="dragmath" code="Display.MainApplet.class" archive="DragMath.jar" width=540 height=322>',
-                   '<param name=language value="'+mawlan+'"/>',
-                   '<param name=outputFormat value="Maxima">',
-	     '<param name=openWithExpression value="' + exp + '">',
-	     'To use this page you need a Java-enabled browser. Download the latest Java plug-in from <a href="http://www.java.com">Java.com</a>',
-	     '</applet>');
+	  document.write('<applet name="DragMath" codebase="dragmath" code="Display.MainApplet.class" archive="DragMath.jar" width=540 height=322>',
+		  '<param name=language value="' + mawlan + '"/>',
+		  '<param name=outputFormat value="Maxima">',
+		  '<param name=openWithExpression value="' + exp + '">',
+		  'To use this page you need a Java-enabled browser. Download the latest Java plug-in from <a href="http://www.java.com">Java.com</a>',
+		  '</applet>');
 
-var whichone;
-function writedata()
-{
-    whichone = opener.thenumber
- 
-}
+	  var whichone;
 
-function updateit()
-{
-    var applet = document.DragMath;
-    var ans = document.DragMath.getMathExpression();  
-    
-    opener.document.forms['exampleform'].elements[whichone].value = ans       
-    window.close()
-}
-</script>
+	  function writedata() {
+		  whichone = opener.thenumber
+
+	  }
+
+	  function updateit() {
+		  var applet = document.DragMath;
+		  var ans = document.DragMath.getMathExpression();
+
+		  opener.document.forms['exampleform'].elements[whichone].value = ans
+		  window.close()
+	  }
+	</script>
 
 
 <body onload="writedata()">
 
 
 <form name="checkit">
-<input type="hidden" cols="20" id="data" />
-<br />
-<input type="button" value="Save and close" onclick="updateit()">
-
+	<input type="hidden" cols="20" id="data"/>
+	<br/>
+	<input type="button" value="Save and close" onclick="updateit()">
 
 
 </body>
