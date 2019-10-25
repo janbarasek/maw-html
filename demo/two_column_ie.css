@@ -1,0 +1,9 @@
+ul.submenu_container {display:block; position: static; }
+.submenu_container, .submenu {display:block; position: static; border: none; width:190px;}
+
+.submenu_container { -moz-box-shadow: 0px 0px 0px #111111; /* Firefox 3.6 and earlier */
+box-shadow: 0px 0px 0px #222;}
+
+li:hover .submenu_container {display:block; position: static; } 
+
+#odkaz_hlavicka ul.submenu .maw_active a {color: #038F26;}
