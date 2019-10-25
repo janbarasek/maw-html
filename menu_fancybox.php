@@ -34,13 +34,13 @@ $lang_array = ["cs", "en", "pl", "ca", "zh", "fr", "ru", "de", "it", "uk", "es"]
 
 $custom_between_flags = "";
 
-// is the submenu inside a menu or after?
+
 $submenu_inside = false;
 
-// all submenus? should be hidden with css
+
 $submenu_all = false;
 
-// do we use overlibmws?
+
 $maw_overlib = true;
 
 $maw_header = "";
@@ -67,7 +67,7 @@ if ($reqlang == "") {
 }
 $lang = $reqlang;
 
-// gettext
+
 if ($reqlang == "cs") {
 	$langl = "cs_CZ";
 	$locale_file = "cs_CZ";
@@ -665,17 +665,17 @@ array_push($calcs, maw_submenu('banach',$lang,'banach',__('Method of iterations'
 
  $youtubestring='<div class="wrapper polozka double"><div id="one" class="cetered-div border">';
  include("youtube.php");
- //$popisek='Division on meat grinder / dělení mlýnkem na maso';
- //$adresa='HecEOd2494k';
+
+
  $youtubestring = $youtubestring."<div class='popisek'>$popisek</div>";
  $youtubestring = $youtubestring.'<div class="responsive-container">';
  $imgadresa=preg_replace('/\?.*/', '', $adresa);;
-//if ($adresa==$imgadresa) {$adresa=$adresa."?fs=1&amp;autoplay=1";}
-//else {$adresa=$adresa."&amp;fs=1&amp;autoplay=1";}
+
+
  $youtubestring = $youtubestring."<a href='http://www.youtube.com/watch?v=$adresa' title='' class='fancybox-media'><img class='ytbimg' src='http://img.youtube.com/vi/$imgadresa/0.jpg'></a>";
- //$youtubestring = $youtubestring.'<iframe src="https://www.youtube.com/embed/';
- //$youtubestring = $youtubestring.$adresa;
- //$youtubestring = $youtubestring.'" frameborder="0" allowfullscreen></iframe>';
+
+
+
  $youtubestring = $youtubestring.'</div>';
  if ($reqlang=="cs")	
  {
@@ -724,9 +724,9 @@ shuffle ($calcs);  foreach ($calcs as $value) {    echo $value; }
 
 
 	$(window).load(function () {
-//$(document).ready(function() {
+
 		$('.maw_mobile_menu').masonry({
-			// options
+
 			itemSelector: '.polozka',
 			transitionDuration: '1s',
 			columnWidth: 170

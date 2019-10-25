@@ -21,9 +21,9 @@ if (!curl_errno($ch)) {
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 		header("Cache-Control: public");
 		header("Content-Type: application/pdf");
-		//header("Content-Disposition: attachment; filename=".basename($file).";" );
+
 		header("Content-Transfer-Encoding: binary");
-		//header("Content-Length: ".filesize($file));
+
 		echo($a);
 	} else {
 		$a = str_replace('action="http://um-bc107.mendelu.cz/maw/', 'action="http://user.mendelu.cz/marik/maw-new/redirect.php?form=', $a);
@@ -42,9 +42,6 @@ if (!curl_errno($ch)) {
 
 	}
 }
-
-
-//echo $a;
 
 
 ?>

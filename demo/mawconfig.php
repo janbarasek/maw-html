@@ -1,18 +1,10 @@
 <?php
 
-// mathtex or mimetex service (used to put math on html in integral, 
-// inequlitites and domains)
-// you should setup your own, to be sure that everything works
 
-// $texrender="http://localhost/mathtex/mathtex.php?";
-// $texrender="http://www.forkosh.dreamhost.com/mathtex.cgi?";
-// $texrender="http://www.problem-solving.be/cgi-bin/mathtex.cgi?\large{}";
-
-// home directory for maw
 $mawhome = "/var/www/maw";
 $mawcat = $mawhome . "/common/mawcat";
 
-//pdflatex and latex formater and tex renderer
+
 #$texpath="/opt/texlive2007/bin/i386-linux/";
 $pdflatex = $texpath . "pdflatex";
 $latex = $texpath . "latex";
@@ -21,7 +13,7 @@ $epstopdf = $texpath . "epstopdf";
 $mpost = $texpath . "mpost";
 $ps2pdf = "/usr/bin/ps2pdf";
 
-//$maxima2="/root/maxima/maxima-5.17.1.cmucl/maxima-local";
+
 $maxima2 = "/opt/maxima-5.21/bin/maxima";
 $maxima = "/usr/bin/maxima";
 

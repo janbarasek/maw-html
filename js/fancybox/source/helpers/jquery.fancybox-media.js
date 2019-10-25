@@ -65,7 +65,6 @@
 (function ($) {
 	"use strict";
 
-	//Shortcut for fancyBox object
 	var F = $.fancybox,
 		format = function (url, rez, params) {
 			params = params || '';
@@ -85,7 +84,6 @@
 			return url;
 		};
 
-	//Add helper object
 	F.helpers.media = {
 		defaults: {
 			youtube: {

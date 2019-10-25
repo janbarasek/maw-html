@@ -32,13 +32,13 @@ $lang_array = ["cs", "en", "pl", "ca", "zh", "fr", "ru", "de", "it", "uk", "es"]
 
 $custom_between_flags = "";
 
-// is the submenu inside a menu or after?
+
 $submenu_inside = false;
 
-// all submenus? should be hidden with css
+
 $submenu_all = false;
 
-// do we use overlibmws?
+
 $maw_overlib = true;
 
 $maw_header = "";
@@ -65,7 +65,7 @@ if ($reqlang == "") {
 }
 $lang = $reqlang;
 
-// gettext
+
 if ($reqlang == "cs") {
 	$langl = "cs_CZ";
 	$locale_file = "cs_CZ";
@@ -167,17 +167,6 @@ if ($submenu == 1) {
 }
 
 
-//if (($_COOKIE["device"]=="") || ($_COOKIE["device"]=="auto") )
-//{
-//include_once '../Mobile-Detect/Mobile_Detect.php';
-//$detect = new Mobile_Detect;
-//$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
-//}
-//else
-//{
-//$deviceType = $_COOKIE["device"];
-//}
-
 $deviceType = "tablet";
 
 if (($deviceType != 'computer') && ($form == "main")) {
@@ -190,7 +179,7 @@ function hint_preview($a = "")
 {
 	if ($a != "") {
 		echo("\n" . '<div class="hint_preview">');
-		// echo __("Troubles with writing math? Clicking Preview you get how <a href=\"http://formconv.sourceforge.net/\">formconv</a> renders your expression and how you can enter this expression in Maxima notation (you can use copy and paste to transfer to the form.)");
+
 		echo($a);
 		echo('</div>');
 	}
@@ -227,7 +216,7 @@ function history($adresar, $server)
 function polejazyka($ret)
 {
 	echo '<input type="hidden" name="lang" value="' . $ret . '">';
-//echo '<input type="hidden" name="ip" value="'.$_SERVER['REMOTE_ADDR'].'">';
+
 	echo '<input type="hidden" name="ip" value="">';
 	$ref = $_SERVER['HTTP_REFERER'];
 	echo '<input type="hidden" name="referer" value="' . str_replace("&", "&amp;", $ref) . '">';
@@ -333,12 +322,8 @@ function examples($ids)
 		  );
 
 		  jQuery("#calc .tlacitko").bind("click", function () {
-			  //vstup=$("#myTextInput");
-			  //text=vstup.val();
-			  //pos=$("#myTextInput").caret().start;
-			  //pred=text.substring(0,pos);
-			  //za=text.substring(pos);
-			  //vstup=jQuery("#vystup").text();
+
+
 			  vstup = vyraz;
 			  pos = vstup.indexOf("?");
 			  pred = vstup.substring(0, pos);
@@ -369,8 +354,8 @@ function examples($ids)
 				  }
 				  text = pred + pridat + za;
 			  }
-			  //if (pridat.substring(pridat.length-2)=="()")
-			  //{pos=pos-1;}
+
+
 			  if (pridat == "Enter") {
 				  jQuery("#vystup").text("");
 				  cilovePole.val(text);
@@ -387,9 +372,6 @@ function examples($ids)
 			  }
 		  });
 
-//jQuery('#maw_calculator .tlacitko').prop('value','').css("border","none").css("background-color","transparent");
-//jQuery('#maw_calculator .tlacitko').css("height","20px").css("width","20px").toggleClass("lupa");
-//jQuery('#maw_calculator :submit').css("height","30px").css("width","30px").toggleClass("go");
 
 	  });
 
@@ -459,6 +441,7 @@ function examples($ids)
           });
         });
 
+
 	</script>
 
 
@@ -474,6 +457,7 @@ function examples($ids)
     },
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
+
 
 	</script>
 
@@ -792,14 +776,14 @@ aa.value='%s';
 bb='%s';"
 STR;
 
-// if ($form == "integral")
-// {
-// $onsubmit=sprintf($onsubmitA,__('Submitting, please wait ...'),__('Submit'));
-// }
-// else
-// {
+
+
+
+
+
+
 $onsubmit=" onSubmit=\"document.getElementById('form').style.visibility='hidden';document.getElementById('after-form').style.display='block';\" ";
-// }
+
 
 $submitbuttont=<<<SUB
 <input value="%s" name="tlacitko" type="submit" class="tlacitko" id="myButton">
@@ -931,12 +915,12 @@ echo __("Equations and inequalities");
 echo '</a>';
 aktivni_konec(6);
 
-//echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-//  aktivni(7);
-//echo('<a href="index.php?lang='.$lang.'&amp;form=map" >');
-//echo __("Site map, support");
-//echo '</a>';
-//  aktivni_konec(7);
+
+
+
+
+
+
 
 echo("\n</ul>");
 
@@ -947,16 +931,16 @@ if (!$submenu_inside)
 
 echo '</div>';
 
-//echo '<script type="text/javascript">
-//var browser=navigator.appName;
-//if (browser=="Microsoft Internet Explorer")
-//{
-//document.write("<br><b><span style=\"color:#ff0000\">'.__('Tested on 
-//Firefox, Opera and Konqueror.').' <br>'.__('Some features do not work 
-//on Internet Explorer.').'" );
-//document.write("</span></b><br>");
-//}
-//</script>';
+
+
+
+
+
+
+
+
+
+
 
 echo "\n".'<div id="aftermenu">';
 if (($submenu!="7")&&($submenu!="1")) {
@@ -997,7 +981,6 @@ else
 				alert("Microsoft Internet Explorer gives poor resutls when using this site. This will be fixed in next months. Now you can try Firefox or Chrome instead. Thanks. \n\n\n Zdá se, že používáte Microsoft Internet Explorer. Tento prohlížeč nepracuje správně s webem MAW. Než bude problém opraven, zkuste prosím Firefox nebo Chrome.");
 			}
 
-			//alert ($.browser);
 
 				</script>
 
@@ -1026,7 +1009,7 @@ else
 								if (data.match(/MAWerror/i)) {
 									$("#mawoutput").html("<div class=outputdata><span id=go-top class='no-print'><img src=arrow_up_red.png width=30></span>" + data + "</div>");
 									$(".outputdata").css("border-color", "#F00");
-									//data = "<div style='margin-left:auto; margin-right:10px;'><img src=fail.png width=90></div>" + data;
+
 								} else {
 									$("#mawoutput").html("<div class=outputdata><span id=go-top class=no-print><img src=arrow_up.png width=30></span>" + data + "</div>");
 									$(".outputdata").css("border-color", "#5FCC06");
@@ -1034,18 +1017,18 @@ else
 								MathJax.Hub.Queue(["Typeset", MathJax.Hub]); //,function () {velikost();},function () {velikost();});
 								$("#mawoutput").fadeIn(1000);
 								var position = $("#mawoutput").position();
-								//scroll(0,position.top);
+
 								$("body").animate({scrollTop: position.top, duration: 1000});
 								$("#go-top").click(function () {
 									$("body").animate({scrollTop: 0});
 								});
 							} else {
-								//alert (data.data+" "+data.file);
+
 								url = "http://um.mendelu.cz/dev-maw/common/maw_download.php?file=" + data.file + "&filename=" + data.data;
-								//alert (url);
+
 								jQuery('<form action="http://um.mendelu.cz/dev-maw/common/maw_download.php" method="post"><input type="hidden" name="file" value="' + data.file + '"/><input type="hidden" name="filename" value="' + data.data + '"/>submit<input type="submit" value="odeslat"></form>').appendTo('body').submit().remove();
-								//jquery("#odkaz").remove();
-								//jQuery("<a id=\"odkaz\" href=http://um.mendelu.cz/dev-maw/cache/"+data.data+">stahnout</a>").appendTo('body');
+
+
 							}
 							setTimeout(function () {
 								$("#after-form").css("display", "none");
@@ -1075,13 +1058,8 @@ else
 				/* 8.11.2013 Robert Marik: nastaveni stejne vysky pro class "blok" pokud jsou ve stejne vysce*/
 				bloky = $(".inlinediv .logickyBlok");
 				for (var i = 0; i < bloky.length; i++) {
-					//tento=bloky.eq(i).width();
-					//rodic=bloky.eq(i).parent().parent().width();
-					//if ((tento/rodic)<0.45)
-					//{bloky.eq(i).width(0.45*rodic);}
-					//else
-					//{bloky.eq(i).width(0.95*rodic);}
-					//alert("Under construction: "+rodic);
+
+
 					bloky.eq(i).parent().css({marginLeft: "auto", marginRight: "auto"})
 				}
 				for (var i = 0; i < bloky.length - 1; i++) {
@@ -1096,7 +1074,7 @@ else
 						bloky.eq(i + 1).height(max);
 					}
 				}
-				//alert("Under construction");
+
 			}
 				</script>
 
@@ -1111,12 +1089,12 @@ else
 				if ($("#autosend").length) {
 					alert('has been sent already');
 				} else {
-//alert ('sending'); 
-//var action = confirm('Do you want to send the form?');
+
+
 					var action = true;
 					if (action) {
 						$("#exampleform").submit();
-						//delete the item the way you want
+
 					}
 
 				}

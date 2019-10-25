@@ -6,7 +6,7 @@ $form = $_REQUEST["form"];
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, "http://um-bc107.mendelu.cz/maw/" . $form);
-//curl_setopt($ch, CURLOPT_HEADER, 0);
+
 curl_setopt($ch, CURLOPT_POSTFIELDS, array_merge($_POST, $_GET, ['design' => 'compact']));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
@@ -21,10 +21,10 @@ if (!curl_errno($ch)) {
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 		header("Cache-Control: public");
 		header("Content-Type: application/pdf");
-		//header("Content-Disposition: attachment; filename=\"MAW_output.pdf\";" );
+
 		header("Content-Disposition: inline; filename=\"MAW_output.pdf\";");
 		header("Content-Transfer-Encoding: binary");
-		//header("Content-Length: ".filesize($file));
+
 		echo($a);
 	} elseif ($info['content_type'] == "image/png") {
 		header("Content-Type: image/png");
@@ -79,9 +79,6 @@ if (!curl_errno($ch)) {
 
 	}
 }
-
-
-//echo $a;
 
 
 ?>

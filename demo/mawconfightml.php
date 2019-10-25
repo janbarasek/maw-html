@@ -20,7 +20,5 @@ if ((isset($_COOKIE["maw_design"])) && ($_COOKIE['maw_design'] == "compact")) {
 
 $maw_overlib = false;
 
-//$maw_header="";
-//$custom_between_flag="";
 
 ?>

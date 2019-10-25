@@ -31,13 +31,13 @@ $lang_array = ["cs", "en", "pl", "ca", "zh", "fr", "ru", "de", "it", "uk", "es"]
 
 $custom_between_flags = "";
 
-// is the submenu inside a menu or after?
+
 $submenu_inside = false;
 
-// all submenus? should be hidden with css
+
 $submenu_all = false;
 
-// do we use overlibmws?
+
 $maw_overlib = true;
 
 $maw_header = "";
@@ -64,7 +64,7 @@ if ($reqlang == "") {
 }
 $lang = $reqlang;
 
-// gettext
+
 if ($reqlang == "cs") {
 	$langl = "cs_CZ";
 	$locale_file = "cs_CZ";
@@ -717,9 +717,9 @@ foreach ($sdeleniCZ as $value) {
 echo "<div class='polozka href nopadding'><div class='sdeleni'><small>$value</small></div></div> ";
 }
 
-//foreach ($sdeleniEN as $value) {    
-//echo "<div class='polozka href nopadding'><div class='sdeleni'><small>$value</small></div></div> ";
-//}
+
+
+
 
 
 ?>
@@ -752,11 +752,9 @@ echo "<div class='polozka href nopadding'><div class='sdeleni'><small>$value</sm
 	ga('create', 'UA-41290718-1', 'mendelu.cz');
 	ga('send', 'pageview');
 
-
-	// load masonry
 	$(document).ready(function () {
 		$('.maw_mobile_menu').masonry({
-			// options
+
 			transitionDuration: '1s',
 			columnWidth: 170
 		});
@@ -779,8 +777,6 @@ echo "<div class='polozka href nopadding'><div class='sdeleni'><small>$value</sm
 		fadeInOut();
 	});
 
-
-	//destroy and load masonry again after all images have been loaded
 	$(window).load(function () {
 		$('.maw_mobile_menu').masonry('destroy');
 		$('.maw_mobile_menu').masonry({
@@ -804,7 +800,6 @@ echo "<div class='polozka href nopadding'><div class='sdeleni'><small>$value</sm
 		$('.sad').parent().parent().css("background-color", "lightgray");
 		$('.sad').parent().parent().parent().css("background-color", "black");
 
-		//$(".fancybox-media").prepend("<img class='playbtn' alt='Play' src='http://um.mendelu.cz/maw-html/public/mathevents/play.png'/>");
 
 		$(".fancybox-media").each(function () {
 			odkaz = $(this).attr('href');

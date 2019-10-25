@@ -149,7 +149,7 @@ mé budoucí vzdělávání. Proto používám tuto aplikaci spíše ke kontrole
 výsledků získaných klasickým počítáním, nebo výjímečně v případech,
 kdy moje pokusy vypočítat příklad klasickou cestou selhaly.</div>';
 
-//echo '<div style="color:#222; margin-left:10%; margin-right:20%;margin-top:10px;background-color:#FFF; padding:10px;"><div>  Pokud se Vám MAW líbí a pomáhá Vám, můžete poslat dárek, který bude použit k najmutí webdesignéra pro novou a přívětivější verzi MAWu';
+
 } else { 
 
 echo '<div
@@ -160,7 +160,7 @@ influence on your education. The optimal way how to use this
 application is to solve the problem and then check your result against
 computer generated answer.</div>';
 
-//echo '<div style="color:#222; margin-left:10%; margin-right:20%;margin-top:10px;background-color:#FFF; padding:10px;"><div> If you like MAW, you may donate the author. I will use your money to hire a webdesigner for new user friendly version of MAW. Donations in the form of old calculators are also welcome.';
+
 
 }
 }

@@ -137,32 +137,4 @@ $adresa = $videosarray[0][2];
 /*  } */
 
 
-// if ($reqlang=="cs") {$popisek=$popisekcz;}
-
-///if (($reqlang=="cs") && (mt_rand(0,9)==0))
-//{
-//  $cislo=mt_rand(0,2);
-//  if ($cislo==0)
-//  {
-//   $popisek='Video o zrození mechanických kalkulaček (když computers nebyly stroje ale lidé)';
-//   $adresa='czIQDrOO4zg';
-//  }   
-//  elseif ($cislo==1)
-//  {
-//   $popisek='MacGyverův nožový planimetr: měření obsahu plochy (integrálu) domácí variantou Prytzova planimetru na fotkách zatmění Slunce, začíná v čase 1:09';
-//   $adresa='8lXxJ5eIvII?start=69';
-//  }
-//  else
-//  {
-//  $popisek='Staré mechanické počítadlo (cca 1950)';
-//  $adresa='C_p4QKVNp8A';
-//  }
-//   
-//} 
-
-
-//   $popisek='MacGyverův nožový planimetr: měření obsahu plochy (integrálu) domácí variantou Prytzova planimetru na fotkách zatmění Slunce, začíná v čase 1:09';
-//   $adresa='8lXxJ5eIvII?start=69';
-
-
 ?>

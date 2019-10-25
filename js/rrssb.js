@@ -30,7 +30,6 @@
 
 	$.fn.rrssb = function (options) {
 
-		// Settings that $.rrssb() will accept.
 		var settings = $.extend({
 			description: undefined,
 			emailAddress: undefined,
@@ -41,7 +40,6 @@
 			url: undefined
 		}, options);
 
-		// Return the encoded strings if the settings have been changed.
 		for (var key in settings) {
 			if (settings.hasOwnProperty(key) && settings[key] !== undefined) {
 				settings[key] = encodeString(settings[key]);
@@ -72,7 +70,7 @@
 	 * Utility functions
 	 */
 	var detectCalcSupport = function () {
-		//detect if calc is natively supported.
+
 		var el = $('<div>');
 		var calcProps = [
 			'calc',
@@ -94,7 +92,7 @@
 	};
 
 	var encodeString = function (string) {
-		// Recursively decode string first to ensure we aren't double encoding.
+
 		if (string !== undefined && string !== null) {
 			if (string.match(/%[0-9a-f]{2}/i) !== null) {
 				string = decodeURIComponent(string);
@@ -106,43 +104,31 @@
 	};
 
 	var setPercentBtns = function () {
-		// loop through each instance of buttons
+
 		$('.rrssb-buttons').each(function (index) {
 			var self = $(this);
 			var buttons = $('li:visible', self);
 			var numOfButtons = buttons.length;
 			var initBtnWidth = 100;
 
-			// set initial width of buttons
 			buttons.css('width', initBtnWidth + '%').attr('data-initwidth', initBtnWidth);
 		});
 	};
 
 	var makeExtremityBtns = function () {
-		// loop through each instance of buttons
+
 		$('.rrssb-buttons').each(function (index) {
 			var self = $(this);
-			//get button width
+
 			var containerWidth = self.width();
 			var buttonWidth = $('li', self).not('.small').first().width();
 
-			// enlarge buttons if they get wide enough
-			//if (buttonWidth > 170 && $('li.small', self).length < 1) {
-			//	self.addClass('large-format');
-			//} else {
-			//	self.removeClass('large-format');
-			//}
 
-//			if (containerWidth < 200) {
-//				self.removeClass('small-format').addClass('tiny-format');
-//			} else {
-//				self.removeClass('tiny-format');
-//			}
 		});
 	};
 
 	var backUpFromSmall = function () {
-		// loop through each instance of buttons
+
 		$('.rrssb-buttons').each(function (index) {
 			var self = $(this);
 
@@ -186,13 +172,12 @@
 	};
 
 	var checkSize = function (init) {
-		// loop through each instance of buttons
+
 		$('.rrssb-buttons').each(function (index) {
 
 			var self = $(this);
 			var buttons = $('li', self);
 
-			// get buttons in reverse order and loop through each
 			$(buttons.get().reverse()).each(function (index, count) {
 
 				var button = $(this);
@@ -212,14 +197,13 @@
 			});
 		});
 
-		// if first time running, put it through the magic layout
 		if (init === true) {
 			rrssbMagicLayout(sizeSmallBtns);
 		}
 	};
 
 	var sizeSmallBtns = function () {
-		// loop through each instance of buttons
+
 		$('.rrssb-buttons').each(function (index) {
 			var self = $(this);
 			var regButtonCount;
@@ -230,21 +214,17 @@
 			var buttons = $('li', self);
 			var smallButtons = buttons.filter('.small');
 
-			// readjust buttons for small display
 			var smallBtnCount = smallButtons.length;
 
-			// make sure there are small buttons
 			if (smallBtnCount > 0 && smallBtnCount !== buttons.length) {
 				self.removeClass('small-format');
 
-				//make sure small buttons are square when not all small
 				smallButtons.css('width', '42px');
 				pixelsOff = smallBtnCount * 42;
 				regButtonCount = buttons.not('.small').length;
 				regPercent = 100 / regButtonCount;
 				smallBtnFraction = pixelsOff / regButtonCount;
 
-				// if calc is not supported. calculate the width on the fly.
 				if (support.calc === false) {
 					magicWidth = ((self.innerWidth() - 1) / regButtonCount) - smallBtnFraction;
 					magicWidth = Math.floor(magicWidth * 1000) / 1000;
@@ -256,7 +236,7 @@
 				buttons.not('.small').css('width', magicWidth);
 
 			} else if (smallBtnCount === buttons.length) {
-				// if all buttons are small, change back to percentage
+
 				self.addClass('small-format');
 				setPercentBtns();
 			} else {
@@ -277,7 +257,6 @@
 
 		setPercentBtns();
 
-		// grab initial text width of each button and add as data attr
 		$('.rrssb-buttons li .rrssb-text').each(function (index) {
 			var buttonTxt = $(this);
 			var txtWdth = buttonTxt.width();
@@ -288,7 +267,7 @@
 	};
 
 	var rrssbMagicLayout = function (callback) {
-		//remove small buttons before each conversion try
+
 		$('.rrssb-buttons li.small').removeClass('small');
 
 		checkSize();
@@ -297,7 +276,7 @@
 	};
 
 	var popupCenter = function (url, title, w, h) {
-		// Fixes dual-screen position                         Most browsers      Firefox
+
 		var dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : screen.left;
 		var dualScreenTop = window.screenTop !== undefined ? window.screenTop : screen.top;
 
@@ -309,7 +288,6 @@
 
 		var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
 
-		// Puts focus on the newWindow
 		if (window.focus) {
 			newWindow.focus();
 		}
@@ -328,7 +306,6 @@
 		};
 	})();
 
-	// init load
 	$(document).ready(function () {
 		/*
 		 * Event listners
@@ -340,7 +317,6 @@
 			e.preventDefault();
 		});
 
-		// resize function
 		$(window).resize(function () {
 
 			rrssbMagicLayout(sizeSmallBtns);
@@ -353,7 +329,6 @@
 		rrssbInit();
 	});
 
-	// Make global
 	window.rrssbInit = rrssbInit;
 
 })(window, jQuery);

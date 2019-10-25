@@ -14,10 +14,9 @@
 *
 */
 (function ($) {
-	//Shortcut for fancyBox object
+
 	var F = $.fancybox;
 
-	//Add helper object
 	F.helpers.buttons = {
 		defaults: {
 			skipSingle: false, // disables if gallery contains single image
@@ -29,7 +28,7 @@
 		buttons: null,
 
 		beforeLoad: function (opts, obj) {
-			//Remove self if gallery do not have at least two items
+
 
 			if (opts.skipSingle && obj.group.length < 2) {
 				obj.helpers.buttons = false;
@@ -38,7 +37,6 @@
 				return;
 			}
 
-			//Increase top margin to give space for buttons
 			obj.margin[opts.position === 'bottom' ? 2 : 0] += 30;
 		},
 
@@ -69,14 +67,12 @@
 				}
 			}
 
-			//Prev
 			if (obj.index > 0 || obj.loop) {
 				buttons.prev.removeClass('btnDisabled');
 			} else {
 				buttons.prev.addClass('btnDisabled');
 			}
 
-			//Next / Play
 			if (obj.loop || obj.index < obj.group.length - 1) {
 				buttons.next.removeClass('btnDisabled');
 				buttons.play.removeClass('btnDisabled');
@@ -100,7 +96,6 @@
 
 			toggle = this.buttons.toggle.removeClass('btnDisabled btnToggleOn');
 
-			//Size toggle button
 			if (obj.canShrink) {
 				toggle.addClass('btnToggleOn');
 

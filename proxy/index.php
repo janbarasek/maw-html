@@ -29,7 +29,6 @@ $post_string = implode('&', $post_items);
 
 $ch = curl_init();
 
-// set URL and other appropriate options
 
 curl_setopt($ch, CURLOPT_URL, "http://um-bc107.mendelu.cz/maw-html/");
 curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -42,8 +41,7 @@ $a = str_replace('action="http://um-bc107.mendelu.cz/maw/', 'action="http://user
 $a = str_replace('server="http://um-bc107.mendelu.cz/maw"', 'server="http://user.mendelu.cz/marik/maw-new/redirect.php?"', $a);
 $a = str_replace('server+"/common/formconv.php?', 'server+"form=common/formconv.php&', $a);
 $a = str_replace('/gnuplot/curve.php?', 'form=gnuplot/curve.php?&', $a);
-//$a=str_replace('<a href="index.php?lang=&amp;form=integral&amp;design=full">Switch to a full design</a>','',$a);
-//$a=str_replace('Switch to a full design','',$a);
+
 
 echo $a;
 curl_close($ch);

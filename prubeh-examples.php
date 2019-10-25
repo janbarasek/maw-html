@@ -7,9 +7,8 @@ function bind_examples($id, $tex, $math, $xmin, $xmax, $ymin, $ymax)
 	echo '$("#e-' . $id . '").tooltip({ content: \'<img src="http://um.mendelu.cz/mathtex/mathtex.php?' . $tex . '">\' });';
 	echo '$("#e-' . $id . '").bind("click", function() {';
 	echo '$("#exampleform")[0].reset();';
-//echo '$(\'input[id=ch-'.$checkbox.']\').attr(\'checked\', true).trigger("change");';
-//echo '$(\'[name="akce"][value="'.$checkbox.'"]\').prop("checked", true).trigger("change");';
-//echo '$("#ch-'.$checkbox.'").buttonset("refresh");';
+
+
 	echo '$("#in-funkce").val("' . $math . '");';
 	echo '$("#in-xmin").val("' . $xmin . '");';
 	echo '$("#in-xmax").val("' . $xmax . '");';

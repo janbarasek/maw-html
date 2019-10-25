@@ -31,13 +31,13 @@ $lang_array = ["cs", "en", "pl", "ca", "zh", "fr", "ru", "de", "it", "uk", "es"]
 
 $custom_between_flags = "";
 
-// is the submenu inside a menu or after?
+
 $submenu_inside = false;
 
-// all submenus? should be hidden with css
+
 $submenu_all = false;
 
-// do we use overlibmws?
+
 $maw_overlib = true;
 
 $maw_header = "";
@@ -64,7 +64,7 @@ if ($reqlang == "") {
 }
 $lang = $reqlang;
 
-// gettext
+
 if ($reqlang == "cs") {
 	$langl = "cs_CZ";
 	$locale_file = "cs_CZ";
@@ -117,15 +117,6 @@ function __($text)
 {
 	return gettext($text);
 }
-
-
-//$newsfile="";
-//if  (!(isset($_COOKIE["mawhtml"])))
-//{
-//$newsfile="news.html";
-//if ($lang=="cs") {$newsfile="news_cs.html";}
-//setcookie("mawhtml", time(), time()+3600*24);
-//}
 
 
 $form = $_REQUEST["form"];
@@ -795,8 +786,8 @@ function opt_shuffle ($input)
 
  $youtubestring='<div class="YTB">';
  include("youtube.php");
- //$popisek='Division on meat grinder / dělení mlýnkem na maso';
- //$adresa='HecEOd2494k';
+
+
  $youtubestring = $youtubestring."<div class='YTBleft'><span class='YTBnadpis'>$popisek</span>";
  if ($moje_video==1)
  {
@@ -819,12 +810,12 @@ else
  $youtubestrin=$youtubestring.'<div id="one">';
  $youtubestring = $youtubestring.'<div class="responsive-container">';
  $imgadresa=preg_replace('/\?.*/', '', $adresa);;
-//if ($adresa==$imgadresa) {$adresa=$adresa."?fs=1&amp;autoplay=1";}
-//else {$adresa=$adresa."&amp;fs=1&amp;autoplay=1";}
+
+
  $youtubestring = $youtubestring."<a href='http://www.youtube.com/watch?v=$adresa' title='' class='fancybox-media'><img class='ytbimg' src='http://img.youtube.com/vi/$imgadresa/0.jpg'></a>";
- //$youtubestring = $youtubestring.'<iframe src="https://www.youtube.com/embed/';
- //$youtubestring = $youtubestring.$adresa;
- //$youtubestring = $youtubestring.'" frameborder="0" allowfullscreen></iframe>';
+
+
+
  $youtubestring = $youtubestring.'</div></div>';
  $youtubestring = $youtubestring.'</div></div>';
 
@@ -880,10 +871,10 @@ printf("\n<div class=\"maw_mobile_menu\">");
 
 
 $calcs = [];
-//array_push($calcs, "<div class='polozka href nopadding double social'><div class='sdeleni'><div>".$social."</div></div></div>");
 
 
-//array_push($calcs, "<div class='polozka href nopadding'><div class='sdeleni'><div>".$animation."</div></div></div>");
+
+
 
 
 array_push($calcs, maw_submenu('integral',$lang,'integral',__('Antiderivative'),"double"));
@@ -894,7 +885,7 @@ array_push($calcs, maw_submenu('ode',$lang,'ode',__('First order ODE'),'double')
 array_push($calcs, maw_submenu('integral2',$lang,'integral2',__('Double integral')));
 array_push($calcs, maw_submenu('definite',$lang,'definite',__('Definite integral and mean value')));
 
-//$calcs = opt_shuffle ($calcs);  
+
 foreach ($calcs as $value) {    echo $value; } $calcs = [];
 
 array_push($calcs, maw_submenu('geom',$lang,'geom',__('Geometrical applications of definite integral')));
@@ -905,7 +896,7 @@ array_push($calcs, maw_submenu('lagrange',$lang,'lagrange',__('Lagrange polynomi
 array_push($calcs, maw_submenu('mnc',$lang,'mnc',__('Least squares method')));
 
 
-//$calcs = opt_shuffle ($calcs);  
+
 foreach ($calcs as $value) {    echo $value; } $calcs = [];
 
 array_push($calcs, maw_submenu("taylor",$lang,'taylor', __('Taylor polynomial')));
@@ -925,12 +916,12 @@ array_push($calcs, maw_submenu('ineq2d',$lang,'ineq2d',__('Inequalities')));
 
 
 
-//if (($reqlang == "cs")&&($sdeleni_czC!="")) {array_push($calcs, "<div class='polozka href nopadding'><div class='sdeleni'>$sdeleni_czC</div></div> ");}
-//if (($reqlang != "cs")&&($sdeleni_enC!="")) {array_push($calcs, "<div class='polozka href nopadding'><div class='sdeleni'>$sdeleni_enC</div></div> ");}
 
 
 
-//$calcs = opt_shuffle ($calcs);  
+
+
+
 foreach ($calcs as $value) {    echo $value; }
 
 echo "</div>";
@@ -974,11 +965,9 @@ echo "</div>";
 	ga('create', 'UA-41290718-1', 'mendelu.cz');
 	ga('send', 'pageview');
 
-
-	// load masonry
 	$(document).ready(function () {
 		$('.maw_mobile_menu').masonry({
-			// options
+
 			transitionDuration: '1s',
 			columnWidth: 170
 		});
@@ -1001,8 +990,6 @@ echo "</div>";
 		fadeInOut();
 	});
 
-
-	//destroy and load masonry again after all images have been loaded
 	$(window).load(function () {
 		$('.maw_mobile_menu').masonry('destroy');
 		$('.maw_mobile_menu').masonry({
@@ -1026,7 +1013,6 @@ echo "</div>";
 		$('.sad').parent().parent().css("background-color", "black");
 
 
-// $(".fancybox-media").prepend("<img class='playbtn' alt='Play' src='http://um.mendelu.cz/maw-html/public/mathevents/play.png'/>");
 		$(".fancybox-media").each(function () {
 			odkaz = $(this).attr('href');
 			if (odkaz.indexOf("youtu") >= 0) {
@@ -1042,9 +1028,7 @@ echo "</div>";
 	<?php
 
 
-	//if ($newsfile!=""){
-	//echo "\$(document).ready(function() {\$.fancybox.open({ href : '$newsfile', type: 'iframe' });});";
-	//}
+
 
 
 	?>
